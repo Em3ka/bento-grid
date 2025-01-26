@@ -28,7 +28,7 @@ Users should be able to:
 ### 🔗 Links
 
 [![](https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/Em3ka/bento-grid)
-[![](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)]()
+[![](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://bento-grid-nine-eta.vercel.app/)
 
 ### 🏗️ Built with
 
