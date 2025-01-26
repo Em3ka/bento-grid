@@ -1,0 +1,486 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/DMSans-VariableFont_opsz,wght.ttf')
+    format('truetype');
+  font-weight: 400 500;
+}
+
+:root {
+  /* ====  Colors ==== */
+  --purple-100: hsl(254, 88%, 90%);
+  --purple-500: hsl(256, 67%, 59%);
+  --yellow-100: hsl(31, 66%, 93%);
+  --yellow-500: hsl(39, 100%, 71%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 7%);
+
+  /* ==== Typography and Font ==== */
+  --ff-base: 'DM Sans', serif;
+  --fw-normal: 400;
+  --fw-medium: 500;
+
+  --fs-900: clamp(2.875rem, 2.523rem + 1.502vi, 3.875rem);
+  --fs-800: clamp(2rem, 1.824rem + 0.751vi, 2.5rem);
+  --fs-700: clamp(1.625rem, 1.493rem + 0.563vi, 2rem);
+  --fs-300: 1.125rem;
+
+  /* Line Height */
+  --lh-text-preset-1: 0.91;
+  --lh-text-preset-2: 0.87;
+  --lh-text-preset-3: 0.92;
+  --lh-text-preset-4: 1.11;
+
+  /* Letter Spacing */
+  --ls-text-preset-1: -0.04em;
+  --ls-text-preset-2: -0.06em;
+  --ls-text-preset-3: -0.06em;
+
+  /* ==== Utils ==== */
+  --corner-radius: 0.625em;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-weight: var(--fw-medium);
+}
+
+p {
+  line-height: var(--lh-text-preset-4);
+  font-size: var(--fs-300);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 1rem;
+  font-style: italic;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--ff-base);
+  font-size: var(--fs-300);
+}
+
+/*=============== UTILITIES CLASS ===============*/
+.wrapper {
+  --_col: 4;
+  --_pad-inline: 2rem;
+  --_pad-block: 2rem 2.5rem;
+  --_gutter: 1.5rem;
+  --_col-size: (var(--_col) - 1) * var(--_gutter);
+  --_content-max: 70rem;
+
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(100% - var(--_pad-inline), var(--_content-max))
+    1fr;
+  row-gap: 2rem;
+  padding-block: var(--_pad-block);
+  margin-inline: auto;
+
+  > * {
+    grid-column: 2 / -2;
+  }
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+/*=============== COMPONENTS STYLES ===============*/
+/* ==== Social Media Card ==== */
+.card__social {
+  background-color: var(--purple-500);
+  color: var(--white);
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-radius: var(--corner-radius);
+}
+
+.card__social-title {
+  max-width: 13ch;
+  margin-inline: auto;
+  margin-block-end: 1.5rem;
+  font-size: var(--fs-900);
+  line-height: var(--lh-text-preset-1);
+
+  & span {
+    color: var(--yellow-500);
+  }
+}
+
+.card__social-img {
+  width: 12rem;
+  margin-block-end: 0.5rem;
+}
+
+/* ==== Manage & Maintain Card ==== */
+.card__inner {
+  display: grid;
+  gap: 2rem;
+
+  > * {
+    display: grid;
+    row-gap: 1rem;
+    padding: 1rem;
+    border-radius: var(--corner-radius);
+  }
+}
+
+.card__manage-img {
+  width: min(100%, 19.75rem);
+}
+
+.card__maintain {
+  background-color: var(--yellow-500);
+  overflow: hidden;
+}
+
+.card__maintain-title {
+  max-width: 13ch;
+}
+
+.card__maintain-img {
+  position: relative;
+  bottom: -2.5rem;
+  margin-block-start: -2.5rem;
+  width: 13rem;
+}
+
+/* ==== Schedule to Social Media Card ==== */
+.card__schedule {
+  display: grid;
+  row-gap: 1.5rem;
+  text-align: center;
+  background-color: var(--purple-100);
+  padding-block: 2rem;
+  border-radius: var(--corner-radius);
+}
+
+.card__schedule-title,
+.card__schedule-description {
+  padding-inline: 2rem;
+}
+
+.card__schedule-description {
+  max-width: 29ch;
+  margin-inline: auto;
+}
+
+.card__schedule-img {
+  width: min(90%, 22rem);
+  margin-inline: auto;
+}
+
+/* ==== Followers Card ==== */
+.card__followers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  background-color: var(--purple-500);
+  color: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--corner-radius);
+}
+
+.card__followers-img {
+  width: 14.1875rem;
+}
+
+.card__followers-title {
+  font-size: var(--fs-800);
+  line-height: var(--lh-text-preset-2);
+  letter-spacing: var(--ls-text-preset-2);
+  max-width: 11ch;
+  margin-inline: auto;
+}
+
+/* ==== Audience Card ==== */
+.card__audience {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.card__audience-title {
+  font-size: var(--fs-900);
+  line-height: var(--lh-text-preset-1);
+  letter-spacing: var(--ls-text-preset-1);
+  margin-block-end: 1rem;
+}
+
+.card__audience-img {
+  width: 11rem;
+}
+
+/* ==== Create Content Group Card ==== */
+.card__content {
+  display: grid;
+  gap: 2rem;
+
+  > * {
+    border-radius: var(--corner-radius);
+  }
+
+  & h2 {
+    font-size: var(--fs-800);
+    line-height: var(--lh-text-preset-2);
+    letter-spacing: var(--ls-text-preset-2);
+  }
+}
+
+.card__post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: var(--yellow-100);
+}
+
+.card__post-title span {
+  color: var(--purple-500);
+}
+
+.card__post-img {
+  width: 11.875rem;
+}
+
+.card__ai {
+  background-color: var(--yellow-500);
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+.card__ai-img {
+  position: relative;
+  bottom: -4rem;
+  margin-block-start: -4rem;
+  width: 13.75rem;
+}
+
+.card__ai-title {
+  margin-block-end: 1.5rem;
+}
+
+/* Shared styles */
+.card__manage-title,
+.card__maintain-title,
+.card__schedule-title {
+  font-size: var(--fs-700);
+  line-height: var(--lh-text-preset-3);
+  letter-spacing: var(--ls-text-preset-3);
+}
+
+/*=============== MEDIA QUERIES ===============*/
+/* Tablet: 768px */
+@media (min-width: 48rem) {
+  :root {
+    --lh-text-preset-1: 0.88;
+    --lh-text-preset-2: 0.83;
+    --lh-text-preset-3: 0.92;
+  }
+
+  /* prettier-ignore */
+  .wrapper {
+    --_col: 8;
+    --_pad-block: 3.25rem 4.75rem;
+    --_pad-inline: 5rem;
+    --_gutter: 1rem;
+
+    grid-template-columns:
+      1fr
+      repeat(var(--_col), 
+      calc((min(100% - var(--_pad-inline), var(--_content-max)) - var(--_col-size)) / var(--_col)))
+      1fr;
+    column-gap: var(--_gutter);
+  }
+
+  .card__social {
+    padding: 4.5rem 6.75rem;
+  }
+
+  /* Manage & Maintain Card */
+  .card__inner {
+    grid-template-columns: repeat(2, 1fr);
+
+    > * {
+      padding: 1.5rem;
+    }
+  }
+
+  .card__maintain-img {
+    bottom: -1rem;
+    margin-block-start: -1rem;
+  }
+
+  .card__manage-title {
+    max-width: 13ch;
+  }
+
+  /* Schedule to Social Media Card  */
+  .card__followers {
+    flex-direction: row;
+  }
+
+  .card__followers-img {
+    justify-self: end;
+  }
+
+  .card__followers-title {
+    margin-inline: unset;
+  }
+
+  .card__audience {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card__ai-img {
+    bottom: unset;
+    margin-block-start: unset;
+  }
+}
+
+/* Desktop: 1120px */
+@media (min-width: 70rem) {
+  :root {
+    --lh-text-preset-1: 0.93;
+    --lh-text-preset-2: 0.9;
+    --lh-text-preset-3: 0.87;
+
+    --ls-text-preset-1: -0.03em;
+    --ls-text-preset-2: -0.02em;
+    --ls-text-preset-3: -0.02em;
+  }
+
+  /* prettier-ignore */
+  .wrapper {
+    --_col: 12;
+    --_pad-block: 5.1875rem 4.0625rem;
+    /* --_pad-inline: 20rem; */
+    --_gutter: 2rem;
+
+
+    grid-template-columns:
+      1fr
+      repeat(var(--_col), 
+      calc((min(100% - var(--_pad-inline), var(--_content-max)) - var(--_col-size)) / var(--_col)))
+      1fr;
+    column-gap: var(--_gutter);
+  }
+
+  /* Social Media Card */
+  .card__social {
+    grid-column: 5 / 11;
+    grid-row: 1 / 2;
+    padding: 3.875rem 2rem;
+  }
+
+  /* Manage & Maintain Card */
+  .card__inner {
+    grid-column: 5 / 11;
+    grid-row: 2 / 3;
+  }
+
+  .card__manage {
+    grid-template-rows: 1fr min-content;
+    row-gap: 1.2788rem;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+  }
+
+  .card__manage-img {
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+  }
+
+  .card__manage-title {
+    max-width: 10ch;
+  }
+
+  .card__maintain-img {
+    bottom: -5.5rem;
+    margin-block-start: -5.5rem;
+  }
+
+  /* Schedule to Social Media Card  */
+  .card__schedule {
+    grid-column: 11 / 14;
+    grid-row: 1 / 3;
+    grid-template-rows: min-content 1fr min-content;
+    text-align: start;
+    padding: 3.125rem 0 3.125rem 2rem;
+  }
+
+  .card__schedule > :not(img) {
+    padding-inline-end: 2rem;
+  }
+
+  .card__schedule-img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    object-position: left;
+  }
+
+  .card__schedule-title,
+  .card__schedule-description {
+    padding-inline: unset;
+  }
+
+  /* Followers Card */
+  .card__followers {
+    grid-column: 8 / 14;
+    grid-row: 3 / 4;
+    gap: 0.5rem;
+  }
+
+  /* Audience Card */
+  .card__audience {
+    grid-column: 5 / 8;
+    grid-row: 3 / 4;
+    flex-direction: column;
+  }
+
+  /* Create Content Group Card */
+  .card__content {
+    grid-column: 2 / 5;
+    grid-row: 1 / 4;
+    grid-template-rows: min-content 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .card__post {
+    padding-block: 4.895rem;
+  }
+
+  .card__ai {
+    padding: 1.5rem 0.75rem 1.5rem 1.5rem;
+  }
+}
