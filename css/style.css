@@ -37,6 +37,7 @@
 
   /* ==== Utils ==== */
   --corner-radius: 0.625em;
+  --clr-body: hsl(300, 5%, 96%);
 }
 
 *,
@@ -70,6 +71,7 @@ body {
   min-height: 100vh;
   font-family: var(--ff-base);
   font-size: var(--fs-300);
+  background-color: var(--clr-body);
 }
 
 /*=============== UTILITIES CLASS ===============*/
